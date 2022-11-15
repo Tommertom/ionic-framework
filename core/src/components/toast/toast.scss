@@ -128,6 +128,10 @@
   display: flex;
 }
 
+/**
+ * This aligns the end button group on the right
+ * even when the buttons wrap to the next line.
+ */
 .toast-button-group.toast-button-group-end {
   @include margin(null, null, null, auto);
 }
