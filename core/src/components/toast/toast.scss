@@ -102,6 +102,8 @@
 .toast-container {
   display: flex;
 
+  flex-wrap: wrap;
+
   align-items: center;
   pointer-events: auto;
 
@@ -110,14 +112,6 @@
   max-height: inherit;
 
   contain: content;
-}
-
-.toast-content {
-  display: flex;
-
-  flex: 1;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .toast-icon {
@@ -131,6 +125,8 @@
 }
 
 .toast-button-group {
+  @include margin(null, null, null, auto);
+
   display: flex;
 }
 
