@@ -125,9 +125,11 @@
 }
 
 .toast-button-group {
-  @include margin(null, null, null, auto);
-
   display: flex;
+}
+
+.toast-button-group.toast-button-group-end {
+  @include margin(null, null, null, auto);
 }
 
 .toast-button {
