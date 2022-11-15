@@ -107,6 +107,14 @@ test.describe('toast: rendering', () => {
     const { container } = await toastFixture.openToast('#translucent-toast');
     await toastFixture.screenshot('translucent', container);
   });
+  test('should render icon correctly', async () => {
+    const { container } = await toastFixture.openToast('#toast-with-icon');
+    await toastFixture.screenshot('icon', container);
+  });
+  test('should wrap buttons when action text is long', async () => {
+    const { container } = await toastFixture.openToast('#long-action');
+    await toastFixture.screenshot('long-action', container);
+  });
 });
 
 test.describe('toast: properties', () => {
