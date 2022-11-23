@@ -113,6 +113,14 @@ export const startTapClick = (config: Config) => {
     }
   };
 
+  /**
+   * rippleEffect.addRipple returns
+   * a promise that resolves when the ripple
+   * effect animation ends. As a result, we
+   * wait for that promise to resolve before
+   * removing it from the DOM. This prevents us
+   * from ever interrupting the ripple animation.
+   */
   const removeRipple = () => {
     if (activeRipple !== undefined) {
       activeRipple.then((remove) => remove());
@@ -200,6 +208,16 @@ const getRippleEffect = (el: HTMLElement) => {
 };
 
 const ACTIVATED = 'ion-activated';
-const ADD_ACTIVATED_DEFERS = 200;
+
+/**
+ * The active state on a button
+ * should be cleared if the user begins
+ * to scroll. As a result, we need to wait
+ * up to 100ms before adding the active state
+ * to give the `pointercancel` event time to fire.
+ * 100ms is an estimate. On very slow devices it is possible
+ * that `pointercancel` could take longer than 100ms to fire.
+ */
+const ADD_ACTIVATED_DEFERS = 100;
 const CLEAR_STATE_DEFERS = 200;
 const MOUSE_WAIT = 2500;
